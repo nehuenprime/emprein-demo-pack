@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Emprein | Conectá ideas</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- FONDO DECORATIVO -->
+    <div class="background-decoration decoration-one"></div>
+    <div class="background-decoration decoration-two"></div>
+    <div class="background-decoration decoration-three"></div>
+
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+    <aside class="sidebar">
+
+        <form class="sidebar__form">
+            <input type="checkbox" id="open-menu">
+
+            <label
+                class="material-symbols-outlined close-button"
+                for="open-menu"
+                title="Contraer menú"
+            >
+                close
+            </label>
+
+            <label
+                class="material-symbols-outlined open-button"
+                for="open-menu"
+                title="Abrir menú"
+            >
+                double_arrow
+            </label>
+        </form>
+
+
+        <!-- LOGO -->
+        <a href="#" class="sidebar__brand">
+            <div class="brand-logo">E</div>
+            <span class="brand-name">Emprein</span>
+        </a>
+
+
+        <!-- NAVEGACIÓN PRINCIPAL -->
+        <nav class="sidebar__nav">
+            <ul>
+
+                <li
+                    class="sidebar__item active"
+                    data-name="Descubrir"
+                    data-view="discover"
+                >
+                    <span class="material-symbols-outlined">explore</span>
+                    <a href="#discover">Descubrir</a>
+                </li>
+
+                <li
+                    class="sidebar__item"
+                    data-name="Matches"
+                    data-view="matches"
+                >
+                    <span class="material-symbols-outlined">handshake</span>
+                    <a href="#matches">Matches</a>
+                </li>
+
+                <li
+                    class="sidebar__item"
+                    data-name="Mensajes"
+                    data-view="messages"
+                >
+                    <span class="material-symbols-outlined">mail</span>
+                    <a href="#messages">Mensajes</a>
+                </li>
+
+                <li
+                    class="sidebar__item"
+                    data-name="Proyectos"
+                    data-view="projects"
+                >
+                    <span class="material-symbols-outlined">lightbulb</span>
+                    <a href="#projects">Proyectos</a>
+                </li>
+
+                <li
+                    class="sidebar__item"
+                    data-name="Premium"
+                    data-view="premium"
+                >
+                    <span class="material-symbols-outlined">workspace_premium</span>
+                    <a href="#premium">Premium</a>
+                </li>
+
+            </ul>
+        </nav>
+
+
+        <!-- NAVEGACIÓN INFERIOR -->
+        <div class="sidebar__bottom">
+
+            <div
+                class="sidebar__item"
+                data-name="Configuración"
+                data-view="settings"
+            >
+                <span class="material-symbols-outlined">settings</span>
+                <a href="#settings">Configuración</a>
+            </div>
+
+            <div
+                class="sidebar__item profile-item"
+                data-name="Mi perfil"
+                data-view="profile"
+            >
+                <div class="profile-avatar" id="sidebarProfileAvatar">NB</div>
+                <a href="#profile" id="sidebarProfileName">Mi perfil</a>
+            </div>
+
+            <div
+                class="sidebar__item"
+                data-name="Salir"
+                id="logoutButton"
+            >
+                <span class="material-symbols-outlined">logout</span>
+                <a href="#">Salir</a>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- CONTROLES RESPONSIVE DEL SIDEBAR -->
+    <label
+        for="open-menu"
+        class="mobile-menu-toggle material-symbols-outlined"
+        aria-label="Abrir menú"
+        title="Abrir menú"
+    >
+        menu
+    </label>
+
+    <label
+        for="open-menu"
+        class="sidebar-backdrop"
+        aria-label="Cerrar menú"
+    ></label>
+
+
+    <!-- =========================================
+         CONTENIDO PRINCIPAL
+    ========================================== -->
+    <main class="main">
+
+
+        <!-- =====================================
+             DESCUBRIR
+        ====================================== -->
+        <section class="app-section active" id="discover">
+
+            <div class="discover-header">
+
+                <div>
+                    <span class="section-label">DESCUBRIR</span>
+
+                    <h1>
+                        Encontrá personas para
+                        <span>hacer crecer una idea.</span>
+                    </h1>
+
+                    <p>
+                        Conectá con emprendedores, desarrolladores,
+                        diseñadores, inversores y profesionales.
+                    </p>
+                </div>
+
+                <div class="profile-counter">
+                    <span id="currentProfileNumber">1</span>
+                    /
+                    <span id="totalProfiles">1</span>
+                </div>
+
+            </div>
+
+
+            <!-- CARD DE PERFIL -->
+            <div class="card-wrapper">
+
+                <article class="profile-card" id="profileCard">
+
+                    <div class="card-top">
+
+                        <div class="avatar" id="profileAvatar">LF</div>
+
+                        <div class="card-status">
+                            <span class="status-dot"></span>
+                            Disponible
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-main">
+
+                        <div class="profile-title">
+
+                            <div>
+                                <h2 id="profileName">Lucía Fernández</h2>
+                                <p id="profileRole">UX Designer</p>
+                            </div>
+
+                            <div class="location">
+                                <span>⌖</span>
+                                <span id="profileLocation">Buenos Aires</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="badges">
+                            <span class="badge green" id="profileCategory">EdTech</span>
+                            <span class="badge" id="profileStage">MVP</span>
+                        </div>
+
+
+                        <div class="idea-box">
+                            <span class="idea-label">IDEA</span>
+                            <p id="profileIdea">
+                                Plataforma de aprendizaje inclusivo.
+                            </p>
+                        </div>
+
+
+                        <div class="skills" id="profileSkills"></div>
+
+                    </div>
+
+
+                    <!-- ACCIONES -->
+                    <div class="actions">
+
+                        <button
+                            class="action-button reject"
+                            data-tooltip="Descartar"
+                            id="rejectButton"
+                            aria-label="Descartar"
+                        >
+                            ✕
+                        </button>
+
+                        <button
+                            class="action-button info"
+                            data-tooltip="Saber más"
+                            id="infoButton"
+                            aria-label="Saber más"
+                        >
+                            i
+                        </button>
+
+                        <button
+                            class="action-button contact"
+                            data-tooltip="Contactar"
+                            id="contactButton"
+                            aria-label="Contactar"
+                        >
+                            ✉
+                        </button>
+
+                        <button
+                            class="action-button like"
+                            data-tooltip="Me interesa"
+                            id="likeButton"
+                            aria-label="Me interesa"
+                        >
+                            ✓
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             MATCHES
+        ====================================== -->
+        <section class="app-section" id="matches">
+
+            <div class="page-header">
+                <div>
+                    <span class="section-label">MATCHES</span>
+                    <h1>Tus conexiones</h1>
+                    <p>
+                        Personas con las que marcaste interés y querés seguir en contacto.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="matches-summary">
+
+                <article class="summary-card">
+                    <span class="material-symbols-outlined">handshake</span>
+                    <div>
+                        <strong id="totalMatchesCount">0</strong>
+                        <p>Matches</p>
+                    </div>
+                </article>
+
+                <article class="summary-card">
+                    <span class="material-symbols-outlined">mark_email_unread</span>
+                    <div>
+                        <strong id="newMatchesCount">0</strong>
+                        <p>Nuevos</p>
+                    </div>
+                </article>
+
+                <article class="summary-card">
+                    <span class="material-symbols-outlined">forum</span>
+                    <div>
+                        <strong id="contactedMatchesCount">0</strong>
+                        <p>Contactados</p>
+                    </div>
+                </article>
+
+            </div>
+
+
+            <div class="section-toolbar">
+
+                <label class="search-box" for="matchSearch">
+                    <span class="material-symbols-outlined">search</span>
+                    <input
+                        type="search"
+                        id="matchSearch"
+                        placeholder="Buscar un match..."
+                    >
+                </label>
+
+                <select id="matchFilter" aria-label="Filtrar matches">
+                    <option value="all">Todos</option>
+                    <option value="new">Nuevos</option>
+                    <option value="contacted">Contactados</option>
+                </select>
+
+            </div>
+
+
+            <div class="matches-grid" id="matchesGrid">
+
+                <div class="empty-state" id="matchesEmptyState">
+                    <span class="material-symbols-outlined">handshake</span>
+                    <h3>Todavía no tenés matches</h3>
+                    <p>
+                        Cuando marques un perfil como “Me interesa”, va a aparecer acá.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             MENSAJES
+        ====================================== -->
+        <section class="app-section" id="messages">
+
+            <div class="page-header">
+                <div>
+                    <span class="section-label">MENSAJES</span>
+                    <h1>Conversaciones</h1>
+                    <p>
+                        Tus conversaciones con matches y personas que contactaste.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="messages-layout">
+
+                <!-- LISTA DE CONVERSACIONES -->
+                <aside class="conversation-panel">
+
+                    <div class="conversation-panel__header">
+                        <h2>Mensajes</h2>
+
+                        <label class="search-box" for="conversationSearch">
+                            <span class="material-symbols-outlined">search</span>
+                            <input
+                                type="search"
+                                id="conversationSearch"
+                                placeholder="Buscar conversación..."
+                            >
+                        </label>
+                    </div>
+
+                    <div class="conversation-list" id="conversationList">
+
+                        <div class="empty-state compact" id="conversationsEmptyState">
+                            <span class="material-symbols-outlined">chat_bubble</span>
+                            <p>No hay conversaciones todavía.</p>
+                        </div>
+
+                    </div>
+
+                </aside>
+
+
+                <!-- CHAT -->
+                <section class="chat-panel" id="chatPanel">
+
+                    <div class="empty-chat" id="emptyChat">
+                        <span class="material-symbols-outlined">forum</span>
+                        <h3>Seleccioná una conversación</h3>
+                        <p>
+                            Tus mensajes con esa persona aparecerán acá.
+                        </p>
+                    </div>
+
+
+                    <div class="chat-content" id="chatContent" hidden>
+
+                        <header class="chat-header">
+                            <div class="chat-person">
+                                <div class="chat-avatar" id="chatAvatar">LF</div>
+                                <div>
+                                    <h3 id="chatName">Lucía Fernández</h3>
+                                    <p id="chatRole">UX Designer</p>
+                                </div>
+                            </div>
+                        </header>
+
+                        <div class="chat-messages" id="chatMessages"></div>
+
+                        <form class="chat-form" id="chatForm">
+                            <textarea
+                                id="chatMessageInput"
+                                rows="1"
+                                placeholder="Escribí un mensaje..."
+                                required
+                            ></textarea>
+
+                            <button
+                                type="submit"
+                                class="chat-send-button"
+                                aria-label="Enviar mensaje"
+                            >
+                                <span class="material-symbols-outlined">send</span>
+                            </button>
+                        </form>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             PROYECTOS DESTACADOS
+        ====================================== -->
+        <section class="app-section" id="projects">
+
+            <div class="page-header">
+                <div>
+                    <span class="section-label">PROYECTOS</span>
+                    <h1>Proyectos destacados</h1>
+                    <p>
+                        Descubrí las ideas que más visitas y conexiones están generando.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="section-toolbar">
+
+                <label class="search-box" for="projectSearch">
+                    <span class="material-symbols-outlined">search</span>
+                    <input
+                        type="search"
+                        id="projectSearch"
+                        placeholder="Buscar proyecto..."
+                    >
+                </label>
+
+                <select id="projectSort" aria-label="Ordenar proyectos">
+                    <option value="matches">Más matches</option>
+                    <option value="views">Más visitas</option>
+                    <option value="recent">Más recientes</option>
+                </select>
+
+            </div>
+
+
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Los proyectos se renderizarán con JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             PREMIUM
+        ====================================== -->
+        <section class="app-section" id="premium">
+
+            <div class="page-header page-header--center">
+                <div>
+                    <span class="section-label">EMPREIN PREMIUM</span>
+                    <h1>Elegí el plan que más te sirva</h1>
+                    <p>
+                        Empezá gratis y actualizá cuando quieras llevar tus conexiones más lejos.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="pricing-container">
+
+                <!-- FREE -->
+                <article class="pricing-card">
+
+                    <span class="plan-name">Free</span>
+
+                    <div class="plan-price">
+                        <strong>USD 0</strong>
+                        <span>para siempre</span>
+                    </div>
+
+                    <p class="plan-description">
+                        Para conocer Emprein y empezar a generar conexiones.
+                    </p>
+
+                    <ul class="plan-features">
+                        <li><span class="material-symbols-outlined">check</span> 10 perfiles diarios</li>
+                        <li><span class="material-symbols-outlined">check</span> Hasta 5 matches</li>
+                        <li><span class="material-symbols-outlined">check</span> Mensajes básicos</li>
+                        <li><span class="material-symbols-outlined">check</span> Crear 1 proyecto</li>
+                        <li class="disabled"><span class="material-symbols-outlined">close</span> Estadísticas avanzadas</li>
+                        <li class="disabled"><span class="material-symbols-outlined">close</span> Proyecto destacado</li>
+                    </ul>
+
+                    <button class="secondary-button" type="button" disabled>
+                        Plan actual
+                    </button>
+
+                </article>
+
+
+                <!-- PREMIUM -->
+                <article class="pricing-card premium-card">
+
+                    <span class="recommended-badge">RECOMENDADO</span>
+                    <span class="plan-name">Premium</span>
+
+                    <div class="plan-price">
+                        <strong>USD 5</strong>
+                        <span>por mes</span>
+                    </div>
+
+                    <p class="plan-description">
+                        Para quienes quieren conseguir más oportunidades y hacer crecer sus proyectos.
+                    </p>
+
+                    <ul class="plan-features">
+                        <li><span class="material-symbols-outlined">check</span> Perfiles ilimitados</li>
+                        <li><span class="material-symbols-outlined">check</span> Matches ilimitados</li>
+                        <li><span class="material-symbols-outlined">check</span> Mensajes ilimitados</li>
+                        <li><span class="material-symbols-outlined">check</span> Saber quién mostró interés</li>
+                        <li><span class="material-symbols-outlined">check</span> Destacar proyectos</li>
+                        <li><span class="material-symbols-outlined">check</span> Badge Premium</li>
+                        <li><span class="material-symbols-outlined">check</span> Estadísticas de visitas</li>
+                    </ul>
+
+                    <button
+                        class="primary-button"
+                        type="button"
+                        id="premiumButton"
+                    >
+                        Obtener Premium
+                    </button>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             CONFIGURACIÓN
+        ====================================== -->
+        <section class="app-section" id="settings">
+
+            <div class="page-header">
+                <div>
+                    <span class="section-label">CONFIGURACIÓN</span>
+                    <h1>Preferencias</h1>
+                    <p>
+                        Personalizá cómo querés usar Emprein.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="settings-container">
+
+                <section class="settings-group">
+                    <div class="settings-group__header">
+                        <span class="material-symbols-outlined">palette</span>
+                        <div>
+                            <h2>Apariencia</h2>
+                            <p>Elegí cómo querés ver Emprein.</p>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <div>
+                            <h3>Modo oscuro</h3>
+                            <p>Alterná entre el tema claro y oscuro.</p>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </section>
+
+
+                <section class="settings-group">
+                    <div class="settings-group__header">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <div>
+                            <h2>Notificaciones</h2>
+                            <p>Elegí qué avisos querés recibir.</p>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <div>
+                            <h3>Nuevos matches</h3>
+                            <p>Avisarme cuando consiga una nueva conexión.</p>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" id="matchNotifications" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="settings-card">
+                        <div>
+                            <h3>Mensajes</h3>
+                            <p>Avisarme cuando reciba un mensaje nuevo.</p>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" id="messageNotifications" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="settings-card">
+                        <div>
+                            <h3>Novedades por email</h3>
+                            <p>Recibir novedades y actualizaciones de Emprein.</p>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" id="emailNotifications">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </section>
+
+
+                <section class="settings-group">
+                    <div class="settings-group__header">
+                        <span class="material-symbols-outlined">shield</span>
+                        <div>
+                            <h2>Privacidad</h2>
+                            <p>Controlá la visibilidad de tu perfil.</p>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <div>
+                            <h3>Perfil público</h3>
+                            <p>Permitir que otros usuarios encuentren tu perfil.</p>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" id="publicProfileToggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </section>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             PERFIL / CUENTA
+        ====================================== -->
+        <section class="app-section" id="profile">
+
+            <div class="page-header">
+                <div>
+                    <span class="section-label">PERFIL</span>
+                    <h1>Tu cuenta</h1>
+                    <p>
+                        Creá un perfil simbólico para probar el flujo de registro, sesión y cierre de sesión.
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- USUARIO SIN SESIÓN -->
+            <div class="account-auth" id="profileGuest">
+
+                <div class="auth-tabs">
+                    <button
+                        type="button"
+                        class="auth-tab active"
+                        id="showRegisterButton"
+                    >
+                        Crear cuenta
+                    </button>
+
+                    <button
+                        type="button"
+                        class="auth-tab"
+                        id="showLoginButton"
+                    >
+                        Iniciar sesión
+                    </button>
+                </div>
+
+
+                <!-- REGISTRO -->
+                <form class="account-form" id="registerForm">
+
+                    <div class="form-heading">
+                        <span class="material-symbols-outlined">person_add</span>
+                        <div>
+                            <h2>Crear cuenta</h2>
+                            <p>Armá tu perfil para empezar a conectar.</p>
+                        </div>
+                    </div>
+
+                    <label for="registerName">Nombre completo</label>
+                    <input
+                        type="text"
+                        id="registerName"
+                        autocomplete="name"
+                        required
+                    >
+
+                    <label for="registerEmail">Email</label>
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <label for="registerPassword">Contraseña</label>
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                    <label for="registerRole">Rol</label>
+                    <input
+                        type="text"
+                        id="registerRole"
+                        placeholder="Ej: Desarrollador, emprendedor, inversor..."
+                        required
+                    >
+
+                    <label for="registerIdea">Idea o proyecto</label>
+                    <textarea
+                        id="registerIdea"
+                        placeholder="Contá brevemente qué estás construyendo o qué buscás."
+                    ></textarea>
+
+                    <button type="submit" class="primary-button">
+                        Crear cuenta
+                    </button>
+
+                </form>
+
+
+                <!-- LOGIN -->
+                <form class="account-form" id="loginForm" hidden>
+
+                    <div class="form-heading">
+                        <span class="material-symbols-outlined">login</span>
+                        <div>
+                            <h2>Iniciar sesión</h2>
+                            <p>Ingresá con la cuenta que creaste en este navegador.</p>
+                        </div>
+                    </div>
+
+                    <label for="loginEmail">Email</label>
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <label for="loginPassword">Contraseña</label>
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button type="submit" class="primary-button">
+                        Entrar
+                    </button>
+
+                    <p class="auth-note">
+                        Esta cuenta será solo una simulación local. No usaremos autenticación real todavía.
+                    </p>
+
+                </form>
+
+            </div>
+
+
+            <!-- USUARIO CON SESIÓN -->
+            <div class="account-profile" id="profileLoggedIn" hidden>
+
+                <div class="account-profile__hero">
+
+                    <div class="account-avatar" id="accountAvatar">NB</div>
+
+                    <div>
+                        <span class="account-status">
+                            <span class="status-dot"></span>
+                            Perfil activo
+                        </span>
+
+                        <h2 id="accountDisplayName">Nehuen Boneo</h2>
+                        <p id="accountDisplayRole">Emprendedor</p>
+                    </div>
+
+                </div>
+
+
+                <div class="account-details-grid">
+
+                    <div class="account-detail-card">
+                        <span>Email</span>
+                        <strong id="accountDisplayEmail">correo@ejemplo.com</strong>
+                    </div>
+
+                    <div class="account-detail-card">
+                        <span>Plan</span>
+                        <strong id="accountDisplayPlan">Free</strong>
+                    </div>
+
+                    <div class="account-detail-card account-detail-card--wide">
+                        <span>Idea / proyecto</span>
+                        <strong id="accountDisplayIdea">
+                            Tu idea aparecerá acá.
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="account-actions">
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="editProfileButton"
+                    >
+                        Editar perfil
+                    </button>
+
+                    <button
+                        type="button"
+                        class="danger-button"
+                        id="profileLogoutButton"
+                    >
+                        Cerrar sesión
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         MODAL SABER MÁS
+    ========================================== -->
+    <div class="modal-overlay" id="infoModal">
+
+        <div class="modal">
+
+            <button class="modal-close" data-close-modal>
+                ✕
+            </button>
+
+            <div class="modal-profile-header">
+
+                <div class="modal-avatar" id="modalAvatar">LF</div>
+
+                <div>
+                    <h2 id="modalName">Lucía Fernández</h2>
+                    <p id="modalRole">UX Designer</p>
+                </div>
+
+            </div>
+
+
+            <div class="modal-section">
+                <span class="modal-label">SOBRE EL PROYECTO</span>
+                <p id="modalDescription"></p>
+            </div>
+
+
+            <div class="modal-section">
+                <span class="modal-label">ESTÁ BUSCANDO</span>
+                <p id="modalLookingFor"></p>
+            </div>
+
+
+            <div class="modal-data-grid">
+
+                <div>
+                    <span>Categoría</span>
+                    <strong id="modalCategory"></strong>
+                </div>
+
+                <div>
+                    <span>Etapa</span>
+                    <strong id="modalStage"></strong>
+                </div>
+
+                <div>
+                    <span>Ubicación</span>
+                    <strong id="modalLocation"></strong>
+                </div>
+
+            </div>
+
+
+            <button class="primary-button" id="contactFromInfo">
+                Contactar
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         MODAL CONTACTAR
+    ========================================== -->
+    <div class="modal-overlay" id="contactModal">
+
+        <div class="modal">
+
+            <button class="modal-close" data-close-modal>
+                ✕
+            </button>
+
+            <span class="modal-label">NUEVA CONEXIÓN</span>
+
+            <h2 class="contact-title">
+                Contactar a
+                <span id="contactName"></span>
+            </h2>
+
+            <p class="contact-description">
+                Presentate brevemente y contale por qué te interesa conectar.
+            </p>
+
+
+            <form id="contactForm">
+
+                <label for="subject">Asunto</label>
+                <input
+                    type="text"
+                    id="subject"
+                    placeholder="Ej: Me interesa colaborar con tu proyecto"
+                    required
+                >
+
+                <label for="message">Mensaje</label>
+                <textarea
+                    id="message"
+                    placeholder="Hola, vi tu proyecto y me interesó porque..."
+                    required
+                ></textarea>
+
+                <button type="submit" class="primary-button">
+                    Enviar mensaje
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         TOAST
+    ========================================== -->
+    <div class="toast" id="toast">
+
+        <div class="toast-icon">✓</div>
+
+        <div>
+            <strong id="toastTitle">Listo</strong>
+            <p id="toastMessage">Acción realizada.</p>
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
