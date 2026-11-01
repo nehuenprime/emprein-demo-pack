@@ -3212,3 +3212,9 @@ body.dark-mode .empty-chat {
         padding: 20px 16px;
     }
 }
+
+[hidden] { display: none !important; }
+
+.message-bubble strong { display: block; margin-bottom: 3px; }
+.message-bubble small { display: block; margin-top: 4px; font-size: 11px; opacity: .7; }
+.skill, .badge { white-space: nowrap; }
