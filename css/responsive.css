@@ -1,6 +1,6 @@
 /* =========================
-   MODO OSCURO + RESPONSIVE
-   (se carga al final en todas las páginas)
+    MODO OSCURO + RESPONSIVE
+    (se carga al final en todas las páginas)
 ========================= */
 body.dark-mode {
     --text: #eef5ef; --gray: #aeb9b1; --light-gray: #263029; --white: #17201a; --green-light: #203a26;
@@ -134,7 +134,8 @@ body.dark-mode .empty-state, body.dark-mode .empty-chat { background: rgba(23,32
     .chat-panel, .chat-content { min-height: 420px; }
     .chat-header { padding: 15px 16px; }
     .chat-messages { min-height: 260px; padding: 18px 14px; }
-    .message-bubble { max-width: 88%; font-size: 13px; }
+    .message-row { max-width: 88%; }
+    .message-bubble { font-size: 13px; }
     .chat-form { gap: 8px; padding: 12px; }
     .chat-form textarea { min-height: 45px; }
     .chat-send-button { width: 45px; height: 45px; flex-basis: 45px; }
@@ -192,3 +193,7 @@ body.dark-mode .empty-state, body.dark-mode .empty-chat { background: rgba(23,32
     .auth-tab { width: 100%; }
     .modal { padding: 20px 16px; }
 }
+
+body.dark-mode .message-actions, body.dark-mode .message-reaction { background: #202b23; border-color: #2b382f; }
+body.dark-mode .message-actions button:hover, body.dark-mode .message-actions button.on { background: #203a26; }
+body.dark-mode .message-actions [data-delete]:hover { background: #3a2222; }

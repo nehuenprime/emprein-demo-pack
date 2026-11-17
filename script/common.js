@@ -119,7 +119,7 @@ function renderSidebarAccount() {
 // Los mensajes y respuestas simuladas viven en localStorage, así sobreviven al cambiar de página
 function addMessage(name, from, text, subject = "") {
     if (!conversations[name]) conversations[name] = { messages: [] };
-    conversations[name].messages.push({ from, text, subject, date: new Date().toISOString() });
+    conversations[name].messages.push({ id: newId(), from, text, subject, date: new Date().toISOString() });
     if (from === "me") conversations[name].replyAt = Date.now() + 1500 + Math.random() * 1500;
     saveConversations();
     deliverReplies();
@@ -134,7 +134,7 @@ function deliverReplies() {
         const wait = c.replyAt - Date.now();
         if (wait > 0) { setTimeout(deliverReplies, wait + 50); return; }
         const reply = AUTO_REPLIES[Math.floor(Math.random() * AUTO_REPLIES.length)];
-        c.messages.push({ from: "them", text: reply, subject: "", date: new Date().toISOString() });
+        c.messages.push({ id: newId(), from: "them", text: reply, subject: "", date: new Date().toISOString() });
         delete c.replyAt;
         changed = true;
         if (settings.message && currentChat !== name) showToast("Mensaje nuevo", `${name} te respondió.`);
@@ -144,6 +144,17 @@ function deliverReplies() {
         window.renderConversations?.();
         window.renderMatches?.();
     }
+}
+
+const newId = () => "m" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+
+// Los mensajes viejos no tenían id: se lo asignamos para poder borrarlos y reaccionar
+function ensureMessageIds() {
+    let changed = false;
+    Object.values(conversations).forEach(c => c.messages.forEach(m => {
+        if (!m.id) { m.id = newId(); changed = true; }
+    }));
+    if (changed) saveConversations();
 }
 
 function logout(e) {
@@ -194,5 +205,6 @@ $("#contactForm")?.addEventListener("submit", e => {
 
 applyDarkMode();
 renderSidebarAccount();
+ensureMessageIds();
 deliverReplies();
 if (isMobile()) $("#open-menu").checked = true; // checked = menú cerrado

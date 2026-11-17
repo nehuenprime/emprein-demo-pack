@@ -29,3 +29,33 @@
 .chat-form { display: flex; align-items: flex-end; gap: 10px; margin-top: 0; padding: 16px 18px; border-top: 1px solid #e6ece7; }
 .chat-form textarea { min-height: 48px; max-height: 120px; resize: none; }
 .chat-send-button { width: 48px; height: 48px; flex: 0 0 48px; display: grid; place-items: center; border: 0; border-radius: 14px; background: var(--green); color: #fff; cursor: pointer; }
+
+/* ---------- Acciones de mensaje: reaccionar y eliminar ---------- */
+.message-row { position: relative; display: flex; flex-direction: column; max-width: min(72%, 520px); }
+.message-row.sent { align-self: flex-end; align-items: flex-end; }
+.message-row.received { align-self: flex-start; align-items: flex-start; }
+.message-row .message-bubble { max-width: 100%; cursor: pointer; }
+
+.message-actions {
+      position: absolute; top: -20px; z-index: 3; display: flex; align-items: center; gap: 2px;
+      padding: 3px 5px; border: 1px solid #e1e8e3; border-radius: 999px; background: #fff;
+      box-shadow: 0 8px 22px rgba(35,70,42,.16);
+      opacity: 0; visibility: hidden; transform: translateY(4px); transition: .15s;
+}
+.message-row.sent .message-actions { right: 8px; }
+.message-row.received .message-actions { left: 8px; }
+.message-row.show-actions .message-actions { opacity: 1; visibility: visible; transform: none; }
+@media (hover: hover) {
+      .message-row:hover .message-actions { opacity: 1; visibility: visible; transform: none; }
+}
+
+.message-actions button { width: 30px; height: 30px; display: grid; place-items: center; border: 0; border-radius: 50%; background: transparent; font-size: 16px; line-height: 1; cursor: pointer; transition: .12s; }
+.message-actions button:hover { background: var(--green-light); transform: scale(1.18); }
+.message-actions button.on { background: var(--green-light); }
+.message-actions [data-delete] { margin-left: 3px; color: #b64141; }
+.message-actions [data-delete]:hover { background: #ffe6e6; }
+.message-actions .material-symbols-outlined { font-size: 19px; }
+
+.message-reaction { position: relative; z-index: 1; margin-top: -8px; padding: 1px 7px; border: 1px solid #e1e8e3; border-radius: 999px; background: #fff; font-size: 14px; line-height: 1.5; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+.message-row.sent .message-reaction { margin-right: 10px; }
+.message-row.received .message-reaction { margin-left: 10px; }

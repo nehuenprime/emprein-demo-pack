@@ -47,16 +47,93 @@ function openChat(name) {
     $("#chatMessageInput").focus();
 }
 
+const REACTIONS = ["👍", "❤️", "😂", "😮", "🙏"];
+
 function renderChatMessages() {
     const box = $("#chatMessages");
+    const openId = box.querySelector(".message-row.show-actions")?.dataset.id;
+    const nearBottom = box.scrollHeight - box.scrollTop - box.clientHeight < 80;
+
     box.innerHTML = conversations[currentChat].messages.map(m => `
-        <div class="message-bubble ${m.from === "me" ? "sent" : "received"}">
-            ${m.subject ? `<strong>${escapeHtml(m.subject)}</strong><br>` : ""}
-            ${escapeHtml(m.text)}
-            <small>${formatTime(m.date)}</small>
+        <div class="message-row ${m.from === "me" ? "sent" : "received"}${m.id === openId ? " show-actions" : ""}" data-id="${escapeHtml(m.id)}">
+            <div class="message-actions">
+                ${REACTIONS.map(e => `<button type="button" data-react="${e}" class="${m.reaction === e ? "on" : ""}" aria-label="Reaccionar con ${e}">${e}</button>`).join("")}
+                <button type="button" data-delete aria-label="Eliminar mensaje" title="Eliminar mensaje">
+                    <span class="material-symbols-outlined">delete</span>
+                </button>
+            </div>
+            <div class="message-bubble ${m.from === "me" ? "sent" : "received"}">
+                ${m.subject ? `<strong>${escapeHtml(m.subject)}</strong>` : ""}
+                ${escapeHtml(m.text)}
+                <small>${formatTime(m.date)}</small>
+            </div>
+            ${m.reaction ? `<button type="button" class="message-reaction" data-react="${m.reaction}" title="Quitar reacción">${m.reaction}</button>` : ""}
         </div>`).join("");
+
+    if (nearBottom) scrollChatToBottom();
+}
+
+function scrollChatToBottom() {
+    const box = $("#chatMessages");
     box.scrollTop = box.scrollHeight;
 }
+
+function closeChat() {
+    currentChat = null;
+    $("#chatContent").hidden = true;
+    $("#emptyChat").hidden = false;
+}
+
+// Tocar la misma reacción otra vez la quita
+function reactToMessage(id, emoji) {
+    const msg = conversations[currentChat]?.messages.find(m => m.id === id);
+    if (!msg) return;
+    if (msg.reaction === emoji) delete msg.reaction;
+    else msg.reaction = emoji;
+    saveConversations();
+    renderConversations();
+}
+
+// Se puede borrar cualquier mensaje, tanto los tuyos como los de la otra persona
+function deleteMessage(id) {
+    const convo = conversations[currentChat];
+    if (!convo || !confirm("¿Eliminar este mensaje? Esta acción no se puede deshacer.")) return;
+
+    convo.messages = convo.messages.filter(m => m.id !== id);
+    if (!convo.messages.length) {
+        delete conversations[currentChat];
+        closeChat();
+    }
+    saveConversations();
+    renderConversations();
+    showToast("Mensaje eliminado", "El mensaje fue borrado de la conversación.");
+}
+
+$("#chatMessages").addEventListener("click", e => {
+    const row = e.target.closest(".message-row");
+    if (!row) return;
+
+    const react = e.target.closest("[data-react]");
+    if (react) {
+        row.classList.remove("show-actions");
+        reactToMessage(row.dataset.id, react.dataset.react);
+        return;
+    }
+    if (e.target.closest("[data-delete]")) {
+        row.classList.remove("show-actions");
+        deleteMessage(row.dataset.id);
+        return;
+    }
+
+    // En pantallas táctiles, tocar el mensaje muestra u oculta las acciones
+    const wasOpen = row.classList.contains("show-actions");
+    $$(".message-row.show-actions").forEach(r => r.classList.remove("show-actions"));
+    if (!wasOpen) row.classList.add("show-actions");
+});
+
+document.addEventListener("click", e => {
+    if (!e.target.closest(".message-row")) $$(".message-row.show-actions").forEach(r => r.classList.remove("show-actions"));
+});
 
 $("#conversationList").addEventListener("click", e => {
     const item = e.target.closest("[data-chat]");
@@ -70,9 +147,11 @@ $("#chatForm").addEventListener("submit", e => {
     const text = input.value.trim();
     if (!text || !currentChat) return;
     addMessage(currentChat, "me", text);
+    scrollChatToBottom();
     input.value = "";
     input.style.height = "";
 });
+
 
 // Enter envía, Shift+Enter hace salto de línea; el textarea crece solo
 $("#chatMessageInput").addEventListener("keydown", e => {
