@@ -1,0 +1,17 @@
+/* =========================
+   PREMIUM / PRECIOS
+========================= */
+.pricing-container { max-width: 900px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 10px auto 0; }
+.pricing-card { position: relative; padding: 30px; border: 1px solid rgba(71,161,81,.14); border-radius: 26px; background: rgba(255,255,255,.93); box-shadow: 0 22px 65px rgba(35,70,42,.09); }
+.premium-card { border-color: rgba(71,161,81,.45); box-shadow: 0 28px 75px rgba(71,161,81,.15); }
+.recommended-badge { position: absolute; top: 18px; right: 18px; padding: 6px 9px; border-radius: 999px; background: var(--green); color: #fff; font-size: 9px; font-weight: 800; letter-spacing: 1px; }
+.plan-name { color: var(--green-dark); font-weight: 800; }
+.plan-price { display: flex; align-items: baseline; gap: 8px; margin-top: 18px; }
+.plan-price strong { font-size: 38px; }
+.plan-price span, .plan-description { color: var(--gray); }
+.plan-description { margin-top: 12px; line-height: 1.55; }
+.plan-features { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; list-style: none; }
+.plan-features li { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.plan-features .material-symbols-outlined { font-size: 19px; color: var(--green); }
+.plan-features li.disabled { color: #9ca49f; }
+.plan-features li.disabled .material-symbols-outlined { color: #b7beb9; }

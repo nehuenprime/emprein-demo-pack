@@ -1,0 +1,38 @@
+/* =========================
+   INICIO (Descubrir)
+========================= */
+.discover-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 38px; }
+.discover-header h1 { font-size: clamp(30px, 4vw, 48px); line-height: 1.08; max-width: 650px; margin-top: 10px; }
+.discover-header h1 span { color: var(--green); }
+.discover-header p { color: var(--gray); margin-top: 14px; max-width: 600px; line-height: 1.6; }
+
+.profile-counter { padding: 9px 15px; border: 1px solid rgba(71,161,81,.2); border-radius: 30px; background: rgba(255,255,255,.65); color: var(--gray); font-size: 13px; }
+.profile-counter span:first-child { color: var(--green-dark); font-weight: 800; }
+
+.card-wrapper { display: flex; justify-content: center; }
+.profile-card { width: 100%; max-width: 630px; background: rgba(255,255,255,.93); border: 1px solid rgba(71,161,81,.12); border-radius: 28px; padding: 30px; box-shadow: 0 30px 80px rgba(35,70,42,.13); transition: transform .25s ease, opacity .25s ease; overflow: visible; }
+.card-leave-left { transform: translateX(-120px) rotate(-4deg); opacity: 0; }
+.card-leave-right { transform: translateX(120px) rotate(4deg); opacity: 0; }
+
+.profile-main { margin-top: 25px; }
+.profile-title { display: flex; justify-content: space-between; gap: 20px; }
+.profile-title h2 { font-size: 28px; }
+.profile-title p { margin-top: 4px; color: var(--green); font-weight: 600; }
+.location { display: flex; align-items: center; gap: 5px; color: var(--gray); font-size: 13px; white-space: nowrap; }
+
+.idea-box { margin-top: 24px; padding: 20px; border-radius: 18px; background: linear-gradient(120deg, #f7fbf8, #eff8f1); border: 1px solid #e5efe7; }
+.idea-box p { margin-top: 8px; font-size: 17px; line-height: 1.55; }
+
+.skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.skill { border: 1px solid #e1e6e2; border-radius: 8px; padding: 6px 9px; color: #606861; font-size: 11px; white-space: nowrap; }
+
+.actions { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+.action-button { position: relative; width: 58px; height: 58px; border-radius: 18px; border: none; cursor: pointer; font-size: 23px; font-weight: 700; transition: transform .18s ease, box-shadow .18s ease; }
+.action-button:hover { transform: translateY(-4px); box-shadow: 0 10px 22px rgba(0,0,0,.10); }
+.reject { background: #fff0f0; color: #df5252; }
+.info { background: #eff5ff; color: #477bd4; }
+.contact { background: #edf9ef; color: var(--green); }
+.like { background: var(--green); color: white; }
+
+.action-button::after { content: attr(data-tooltip); position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translateX(-50%) translateY(5px); background: #18211b; color: white; font-size: 11px; font-weight: 500; padding: 6px 9px; border-radius: 7px; white-space: nowrap; pointer-events: none; opacity: 0; transition: .2s; }
+.action-button:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }

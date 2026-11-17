@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Emprein | Mi perfil</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/perfil.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+
+    <div class="background-decoration decoration-one"></div>
+    <div class="background-decoration decoration-two"></div>
+    <div class="background-decoration decoration-three"></div>
+
+    <label class="mobile-menu-toggle" for="open-menu" aria-label="Abrir menú">
+        <span class="material-symbols-outlined">menu</span>
+    </label>
+    <label class="sidebar-backdrop" for="open-menu" aria-label="Cerrar menú"></label>
+
+    <aside class="sidebar">
+
+        <form class="sidebar__form">
+            <input type="checkbox" id="open-menu">
+            <label class="material-symbols-outlined close-button" for="open-menu" title="Contraer menú">close</label>
+            <label class="material-symbols-outlined open-button" for="open-menu" title="Abrir menú">double_arrow</label>
+        </form>
+
+        <a href="../inicio.html" class="sidebar__brand">
+            <div class="brand-logo">E</div>
+            <span class="brand-name">Emprein</span>
+        </a>
+
+        <nav class="sidebar__nav">
+            <ul>
+                <li class="sidebar__item" data-name="Descubrir">
+                    <span class="material-symbols-outlined">explore</span>
+                    <a href="../inicio.html">Descubrir</a>
+                </li>
+                <li class="sidebar__item" data-name="Matches">
+                    <span class="material-symbols-outlined">handshake</span>
+                    <a href="matches.html">Matches</a>
+                </li>
+                <li class="sidebar__item" data-name="Mensajes">
+                    <span class="material-symbols-outlined">mail</span>
+                    <a href="mensajes.html">Mensajes</a>
+                </li>
+                <li class="sidebar__item" data-name="Proyectos">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                    <a href="proyectos.html">Proyectos</a>
+                </li>
+                <li class="sidebar__item" data-name="Premium">
+                    <span class="material-symbols-outlined">workspace_premium</span>
+                    <a href="premium.html">Premium</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar__bottom">
+            <div class="sidebar__item" data-name="Configuración">
+                <span class="material-symbols-outlined">settings</span>
+                <a href="configuracion.html">Configuración</a>
+            </div>
+            <div class="sidebar__item profile-item active" data-name="Mi perfil">
+                <div class="profile-avatar" id="sidebarProfileAvatar">NB</div>
+                <a href="perfil.html" id="sidebarProfileName">Mi perfil</a>
+            </div>
+            <div class="sidebar__item" data-name="Salir" id="logoutButton">
+                <span class="material-symbols-outlined">logout</span>
+                <a href="#">Salir</a>
+            </div>
+        </div>
+
+    </aside>
+
+    <main class="main">
+
+        <section class="app-section active" id="profile">
+
+            <div class="page-header">
+                <div>
+                    <span class="section-label">PERFIL</span>
+                    <h1>Tu cuenta</h1>
+                    <p>Creá un perfil simbólico para probar el flujo de registro, sesión y cierre de sesión.</p>
+                </div>
+            </div>
+
+            <div class="account-auth" id="profileGuest">
+
+                <div class="auth-tabs">
+                    <button type="button" class="auth-tab active" id="showRegisterButton">Crear cuenta</button>
+                    <button type="button" class="auth-tab" id="showLoginButton">Iniciar sesión</button>
+                </div>
+
+                <form class="account-form" id="registerForm">
+                    <div class="form-heading">
+                        <span class="material-symbols-outlined">person_add</span>
+                        <div><h2>Crear cuenta</h2><p>Armá tu perfil para empezar a conectar.</p></div>
+                    </div>
+
+                    <label for="registerName">Nombre completo</label>
+                    <input type="text" id="registerName" autocomplete="name" required>
+
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" autocomplete="email" required>
+
+                    <label for="registerPassword">Contraseña</label>
+                    <input type="password" id="registerPassword" autocomplete="new-password" required>
+
+                    <label for="registerRole">Rol</label>
+                    <input type="text" id="registerRole" placeholder="Ej: Desarrollador, emprendedor, inversor..." required>
+                    <label for="registerIdea">Idea o proyecto</label>
+                    <textarea id="registerIdea" placeholder="Contá brevemente qué estás construyendo o qué buscás."></textarea>
+
+                    <button type="submit" class="primary-button">Crear cuenta</button>
+                </form>
+
+                <form class="account-form" id="loginForm" hidden>
+                    <div class="form-heading">
+                        <span class="material-symbols-outlined">login</span>
+                        <div><h2>Iniciar sesión</h2><p>Ingresá con la cuenta que creaste en este navegador.</p></div>
+                    </div>
+
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" autocomplete="email" required>
+
+                    <label for="loginPassword">Contraseña</label>
+                    <input type="password" id="loginPassword" autocomplete="current-password" required>
+                    <button type="submit" class="primary-button">Entrar</button>
+                    <p class="auth-note">Esta cuenta será solo una simulación local. No usaremos autenticación real todavía.</p>
+                </form>
+
+            </div>
+
+            <div class="account-profile" id="profileLoggedIn" hidden>
+
+                <div class="account-profile__hero">
+                    <div class="account-avatar" id="accountAvatar">NB</div>
+                    <div>
+                        <span class="account-status"><span class="status-dot"></span> Perfil activo</span>
+                        <h2 id="accountDisplayName">Nehuen Boneo</h2>
+                        <p id="accountDisplayRole">Emprendedor</p>
+                    </div>
+                </div>
+
+                <div class="account-details-grid">
+                    <div class="account-detail-card"><span>Email</span><strong id="accountDisplayEmail">correo@ejemplo.com</strong></div>
+                    <div class="account-detail-card"><span>Plan</span><strong id="accountDisplayPlan">Free</strong></div>
+                    <div class="account-detail-card account-detail-card--wide"><span>Idea / proyecto</span><strong id="accountDisplayIdea">Tu idea aparecerá acá.</strong></div>
+                </div>
+
+                <div class="account-actions">
+                    <button type="button" class="secondary-button" id="editProfileButton">Editar perfil</button>
+                    <button type="button" class="danger-button" id="profileLogoutButton">Cerrar sesión</button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">✓</div>
+        <div>
+            <strong id="toastTitle">Listo</strong>
+            <p id="toastMessage">Acción realizada.</p>
+        </div>
+    </div>
+
+    <script src="../script/common.js"></script>
+    <script src="../script/perfil.js"></script>
+
+</body>
+</html>

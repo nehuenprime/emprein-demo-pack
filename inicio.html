@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Emprein | Conectá ideas</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/inicio.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <div class="background-decoration decoration-one"></div>
+    <div class="background-decoration decoration-two"></div>
+    <div class="background-decoration decoration-three"></div>
+
+    <label class="mobile-menu-toggle" for="open-menu" aria-label="Abrir menú">
+        <span class="material-symbols-outlined">menu</span>
+    </label>
+    <label class="sidebar-backdrop" for="open-menu" aria-label="Cerrar menú"></label>
+
+    <aside class="sidebar">
+
+        <form class="sidebar__form">
+            <input type="checkbox" id="open-menu">
+            <label class="material-symbols-outlined close-button" for="open-menu" title="Contraer menú">close</label>
+            <label class="material-symbols-outlined open-button" for="open-menu" title="Abrir menú">double_arrow</label>
+        </form>
+
+        <a href="inicio.html" class="sidebar__brand">
+            <div class="brand-logo">E</div>
+            <span class="brand-name">Emprein</span>
+        </a>
+
+        <nav class="sidebar__nav">
+            <ul>
+                <li class="sidebar__item active" data-name="Descubrir">
+                    <span class="material-symbols-outlined">explore</span>
+                    <a href="inicio.html">Descubrir</a>
+                </li>
+                <li class="sidebar__item" data-name="Matches">
+                    <span class="material-symbols-outlined">handshake</span>
+                    <a href="pages/matches.html">Matches</a>
+                </li>
+                <li class="sidebar__item" data-name="Mensajes">
+                    <span class="material-symbols-outlined">mail</span>
+                    <a href="pages/mensajes.html">Mensajes</a>
+                </li>
+                <li class="sidebar__item" data-name="Proyectos">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                    <a href="pages/proyectos.html">Proyectos</a>
+                </li>
+                <li class="sidebar__item" data-name="Premium">
+                    <span class="material-symbols-outlined">workspace_premium</span>
+                    <a href="pages/premium.html">Premium</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar__bottom">
+            <div class="sidebar__item" data-name="Configuración">
+                <span class="material-symbols-outlined">settings</span>
+                <a href="pages/configuracion.html">Configuración</a>
+            </div>
+            <div class="sidebar__item profile-item" data-name="Mi perfil">
+                <div class="profile-avatar" id="sidebarProfileAvatar">NB</div>
+                <a href="pages/perfil.html" id="sidebarProfileName">Mi perfil</a>
+            </div>
+            <div class="sidebar__item" data-name="Salir" id="logoutButton">
+                <span class="material-symbols-outlined">logout</span>
+                <a href="#">Salir</a>
+            </div>
+        </div>
+
+    </aside>
+
+    <main class="main">
+
+        <section class="app-section active" id="discover">
+
+            <div class="discover-header">
+                <div>
+                    <span class="section-label">DESCUBRIR</span>
+                    <h1>Encontrá personas para <span>hacer crecer una idea.</span></h1>
+                    <p>Conectá con emprendedores, desarrolladores, diseñadores, inversores y profesionales.</p>
+                </div>
+                <div class="profile-counter">
+                    <span id="currentProfileNumber">1</span> / <span id="totalProfiles">1</span>
+                </div>
+            </div>
+
+            <div class="card-wrapper">
+                <article class="profile-card" id="profileCard">
+
+                    <div class="card-top">
+                        <div class="avatar" id="profileAvatar">LF</div>
+                        <div class="card-status"><span class="status-dot"></span> Disponible</div>
+                    </div>
+
+                    <div class="profile-main">
+                        <div class="profile-title">
+                            <div>
+                                <h2 id="profileName">Lucía Fernández</h2>
+                                <p id="profileRole">UX Designer</p>
+                            </div>
+                            <div class="location">
+                                <span>⌖</span>
+                                <span id="profileLocation">Buenos Aires</span>
+                            </div>
+                        </div>
+
+                        <div class="badges">
+                            <span class="badge green" id="profileCategory">EdTech</span>
+                            <span class="badge" id="profileStage">MVP</span>
+                        </div>
+
+                        <div class="idea-box">
+                            <span class="idea-label">IDEA</span>
+                            <p id="profileIdea">Plataforma de aprendizaje inclusivo.</p>
+                        </div>
+
+                        <div class="skills" id="profileSkills"></div>
+                    </div>
+
+                    <div class="actions">
+                        <button class="action-button reject" data-tooltip="Descartar" id="rejectButton" aria-label="Descartar">✕</button>
+                        <button class="action-button info" data-tooltip="Saber más" id="infoButton" aria-label="Saber más">i</button>
+                        <button class="action-button contact" data-tooltip="Contactar" id="contactButton" aria-label="Contactar">✉</button>
+                        <button class="action-button like" data-tooltip="Me interesa" id="likeButton" aria-label="Me interesa">✓</button>
+                    </div>
+
+                </article>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- MODAL SABER MÁS -->
+    <div class="modal-overlay" id="infoModal">
+        <div class="modal">
+            <button class="modal-close" data-close-modal>✕</button>
+
+            <div class="modal-profile-header">
+                <div class="modal-avatar" id="modalAvatar">LF</div>
+                <div>
+                    <h2 id="modalName">Lucía Fernández</h2>
+                    <p id="modalRole">UX Designer</p>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <span class="modal-label">SOBRE EL PROYECTO</span>
+                <p id="modalDescription"></p>
+            </div>
+
+            <div class="modal-section">
+                <span class="modal-label">ESTÁ BUSCANDO</span>
+                <p id="modalLookingFor"></p>
+            </div>
+
+            <div class="modal-data-grid">
+                <div><span>Categoría</span><strong id="modalCategory"></strong></div>
+                <div><span>Etapa</span><strong id="modalStage"></strong></div>
+                <div><span>Ubicación</span><strong id="modalLocation"></strong></div>
+            </div>
+
+            <button class="primary-button" id="contactFromInfo">Contactar</button>
+        </div>
+    </div>
+
+    <!-- MODAL CONTACTAR -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal">
+            <button class="modal-close" data-close-modal>✕</button>
+
+            <span class="modal-label">NUEVA CONEXIÓN</span>
+            <h2 class="contact-title">Contactar a <span id="contactName"></span></h2>
+            <p class="contact-description">Presentate brevemente y contale por qué te interesa conectar.</p>
+
+            <form id="contactForm">
+                <label for="subject">Asunto</label>
+                <input type="text" id="subject" placeholder="Ej: Me interesa colaborar con tu proyecto" required>
+
+                <label for="message">Mensaje</label>
+                <textarea id="message" placeholder="Hola, vi tu proyecto y me interesó porque..." required></textarea>
+
+                <button type="submit" class="primary-button">Enviar mensaje</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">✓</div>
+        <div>
+            <strong id="toastTitle">Listo</strong>
+            <p id="toastMessage">Acción realizada.</p>
+        </div>
+    </div>
+
+    <script src="script/common.js"></script>
+    <script src="script/inicio.js"></script>
+
+</body>
+</html>

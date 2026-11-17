@@ -1,0 +1,19 @@
+/* =========================
+   CONFIGURACIÓN
+========================= */
+.settings-container { max-width: 850px; display: flex; flex-direction: column; gap: 22px; }
+.settings-group { overflow: hidden; border: 1px solid rgba(71,161,81,.12); border-radius: 22px; background: rgba(255,255,255,.9); box-shadow: 0 18px 50px rgba(35,70,42,.07); }
+.settings-group__header { display: flex; align-items: center; gap: 14px; padding: 20px 22px; border-bottom: 1px solid #edf1ee; }
+.settings-group__header > .material-symbols-outlined { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px; background: var(--green-light); color: var(--green-dark); }
+.settings-group__header h2 { font-size: 18px; }
+.settings-group__header p, .settings-card p { margin-top: 4px; color: var(--gray); font-size: 13px; }
+.settings-card { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 22px; border-bottom: 1px solid #edf1ee; }
+.settings-card:last-child { border-bottom: 0; }
+.settings-card h3 { font-size: 15px; }
+
+.switch { position: relative; flex: 0 0 52px; width: 52px; height: 30px; }
+.switch input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.slider { position: absolute; inset: 0; border-radius: 999px; background: #cfd8d1; cursor: pointer; transition: .22s; }
+.slider::before { content: ''; position: absolute; width: 22px; height: 22px; top: 4px; left: 4px; border-radius: 50%; background: #fff; box-shadow: 0 2px 7px rgba(0,0,0,.15); transition: .22s; }
+.switch input:checked + .slider { background: var(--green); }
+.switch input:checked + .slider::before { transform: translateX(22px); }

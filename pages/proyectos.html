@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Emprein | Proyectos</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/proyectos.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+
+    <div class="background-decoration decoration-one"></div>
+    <div class="background-decoration decoration-two"></div>
+    <div class="background-decoration decoration-three"></div>
+
+    <label class="mobile-menu-toggle" for="open-menu" aria-label="Abrir menú">
+        <span class="material-symbols-outlined">menu</span>
+    </label>
+    <label class="sidebar-backdrop" for="open-menu" aria-label="Cerrar menú"></label>
+
+    <aside class="sidebar">
+
+        <form class="sidebar__form">
+            <input type="checkbox" id="open-menu">
+            <label class="material-symbols-outlined close-button" for="open-menu" title="Contraer menú">close</label>
+            <label class="material-symbols-outlined open-button" for="open-menu" title="Abrir menú">double_arrow</label>
+        </form>
+
+        <a href="../inicio.html" class="sidebar__brand">
+            <div class="brand-logo">E</div>
+            <span class="brand-name">Emprein</span>
+        </a>
+
+        <nav class="sidebar__nav">
+            <ul>
+                <li class="sidebar__item" data-name="Descubrir">
+                    <span class="material-symbols-outlined">explore</span>
+                    <a href="../inicio.html">Descubrir</a>
+                </li>
+                <li class="sidebar__item" data-name="Matches">
+                    <span class="material-symbols-outlined">handshake</span>
+                    <a href="matches.html">Matches</a>
+                </li>
+                <li class="sidebar__item" data-name="Mensajes">
+                    <span class="material-symbols-outlined">mail</span>
+                    <a href="mensajes.html">Mensajes</a>
+                </li>
+                <li class="sidebar__item active" data-name="Proyectos">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                    <a href="proyectos.html">Proyectos</a>
+                </li>
+                <li class="sidebar__item" data-name="Premium">
+                    <span class="material-symbols-outlined">workspace_premium</span>
+                    <a href="premium.html">Premium</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar__bottom">
+            <div class="sidebar__item" data-name="Configuración">
+                <span class="material-symbols-outlined">settings</span>
+                <a href="configuracion.html">Configuración</a>
+            </div>
+            <div class="sidebar__item profile-item" data-name="Mi perfil">
+                <div class="profile-avatar" id="sidebarProfileAvatar">NB</div>
+                <a href="perfil.html" id="sidebarProfileName">Mi perfil</a>
+            </div>
+            <div class="sidebar__item" data-name="Salir" id="logoutButton">
+                <span class="material-symbols-outlined">logout</span>
+                <a href="#">Salir</a>
+            </div>
+        </div>
+
+    </aside>
+
+    <main class="main">
+
+        <section class="app-section active" id="projects">
+
+            <div class="page-header">
+                <div>
+                    <span class="section-label">PROYECTOS</span>
+                    <h1>Proyectos destacados</h1>
+                    <p>Descubrí las ideas que más visitas y conexiones están generando.</p>
+                </div>
+            </div>
+
+            <div class="section-toolbar">
+                <label class="search-box" for="projectSearch">
+                    <span class="material-symbols-outlined">search</span>
+                    <input type="search" id="projectSearch" placeholder="Buscar proyecto...">
+                </label>
+                <select id="projectSort" aria-label="Ordenar proyectos">
+                    <option value="matches">Más matches</option>
+                    <option value="views">Más visitas</option>
+                    <option value="recent">Más recientes</option>
+                </select>
+            </div>
+
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Los proyectos se renderizan con JavaScript -->
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">✓</div>
+        <div>
+            <strong id="toastTitle">Listo</strong>
+            <p id="toastMessage">Acción realizada.</p>
+        </div>
+    </div>
+
+    <script src="../script/common.js"></script>
+    <script src="../script/proyectos.js"></script>
+
+</body>
+</html>

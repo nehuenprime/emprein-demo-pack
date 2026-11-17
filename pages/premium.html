@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Emprein | Premium</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/premium.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+
+    <div class="background-decoration decoration-one"></div>
+    <div class="background-decoration decoration-two"></div>
+    <div class="background-decoration decoration-three"></div>
+
+    <label class="mobile-menu-toggle" for="open-menu" aria-label="Abrir menú">
+        <span class="material-symbols-outlined">menu</span>
+    </label>
+    <label class="sidebar-backdrop" for="open-menu" aria-label="Cerrar menú"></label>
+
+    <aside class="sidebar">
+
+        <form class="sidebar__form">
+            <input type="checkbox" id="open-menu">
+            <label class="material-symbols-outlined close-button" for="open-menu" title="Contraer menú">close</label>
+            <label class="material-symbols-outlined open-button" for="open-menu" title="Abrir menú">double_arrow</label>
+        </form>
+
+        <a href="../inicio.html" class="sidebar__brand">
+            <div class="brand-logo">E</div>
+            <span class="brand-name">Emprein</span>
+        </a>
+
+        <nav class="sidebar__nav">
+            <ul>
+                <li class="sidebar__item" data-name="Descubrir">
+                    <span class="material-symbols-outlined">explore</span>
+                    <a href="../inicio.html">Descubrir</a>
+                </li>
+                <li class="sidebar__item" data-name="Matches">
+                    <span class="material-symbols-outlined">handshake</span>
+                    <a href="matches.html">Matches</a>
+                </li>
+                <li class="sidebar__item" data-name="Mensajes">
+                    <span class="material-symbols-outlined">mail</span>
+                    <a href="mensajes.html">Mensajes</a>
+                </li>
+                <li class="sidebar__item" data-name="Proyectos">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                    <a href="proyectos.html">Proyectos</a>
+                </li>
+                <li class="sidebar__item active" data-name="Premium">
+                    <span class="material-symbols-outlined">workspace_premium</span>
+                    <a href="premium.html">Premium</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar__bottom">
+            <div class="sidebar__item" data-name="Configuración">
+                <span class="material-symbols-outlined">settings</span>
+                <a href="configuracion.html">Configuración</a>
+            </div>
+            <div class="sidebar__item profile-item" data-name="Mi perfil">
+                <div class="profile-avatar" id="sidebarProfileAvatar">NB</div>
+                <a href="perfil.html" id="sidebarProfileName">Mi perfil</a>
+            </div>
+            <div class="sidebar__item" data-name="Salir" id="logoutButton">
+                <span class="material-symbols-outlined">logout</span>
+                <a href="#">Salir</a>
+            </div>
+        </div>
+
+    </aside>
+
+    <main class="main">
+
+        <section class="app-section active" id="premium">
+
+            <div class="page-header page-header--center">
+                <div>
+                    <span class="section-label">EMPREIN PREMIUM</span>
+                    <h1>Elegí el plan que más te sirva</h1>
+                    <p>Empezá gratis y actualizá cuando quieras llevar tus conexiones más lejos.</p>
+                </div>
+            </div>
+
+            <div class="pricing-container">
+
+                <article class="pricing-card">
+                    <span class="plan-name">Free</span>
+                    <div class="plan-price"><strong>USD 0</strong><span>para siempre</span></div>
+                    <p class="plan-description">Para conocer Emprein y empezar a generar conexiones.</p>
+                    <ul class="plan-features">
+                        <li><span class="material-symbols-outlined">check</span> 10 perfiles diarios</li>
+                        <li><span class="material-symbols-outlined">check</span> Hasta 5 matches</li>
+                        <li><span class="material-symbols-outlined">check</span> Mensajes básicos</li>
+                        <li><span class="material-symbols-outlined">check</span> Crear 1 proyecto</li>
+                        <li class="disabled"><span class="material-symbols-outlined">close</span> Estadísticas avanzadas</li>
+                        <li class="disabled"><span class="material-symbols-outlined">close</span> Proyecto destacado</li>
+                    </ul>
+                    <button class="secondary-button" type="button" disabled>Plan actual</button>
+                </article>
+
+                <article class="pricing-card premium-card">
+                    <span class="recommended-badge">RECOMENDADO</span>
+                    <span class="plan-name">Premium</span>
+                    <div class="plan-price"><strong>USD 5</strong><span>por mes</span></div>
+                    <p class="plan-description">Para quienes quieren conseguir más oportunidades y hacer crecer sus proyectos.</p>
+                    <ul class="plan-features">
+                        <li><span class="material-symbols-outlined">check</span> Perfiles ilimitados</li>
+                        <li><span class="material-symbols-outlined">check</span> Matches ilimitados</li>
+                        <li><span class="material-symbols-outlined">check</span> Mensajes ilimitados</li>
+                        <li><span class="material-symbols-outlined">check</span> Saber quién mostró interés</li>
+                        <li><span class="material-symbols-outlined">check</span> Destacar proyectos</li>
+                        <li><span class="material-symbols-outlined">check</span> Badge Premium</li>
+                        <li><span class="material-symbols-outlined">check</span> Estadísticas de visitas</li>
+                    </ul>
+                    <button class="primary-button" type="button" id="premiumButton">Obtener Premium</button>
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">✓</div>
+        <div>
+            <strong id="toastTitle">Listo</strong>
+            <p id="toastMessage">Acción realizada.</p>
+        </div>
+    </div>
+
+    <script src="../script/common.js"></script>
+    <script src="../script/premium.js"></script>
+
+</body>
+</html>
