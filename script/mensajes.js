@@ -7,7 +7,8 @@ function renderConversations() {
     const entries = Object.entries(conversations)
         .filter(([name, c]) => byName(name) && c.messages.length)
         .filter(([name]) => !q || name.toLowerCase().includes(q))
-        .sort((a, b) => new Date(b[1].messages.at(-1).date) - new Date(a[1].messages.at(-1).date));
+        .sort((a, b) => (!!b[1].pinned - !!a[1].pinned) ||
+            new Date(b[1].messages.at(-1).date) - new Date(a[1].messages.at(-1).date));
 
     if (!entries.length) {
         list.innerHTML = `
@@ -25,6 +26,7 @@ function renderConversations() {
                     <strong>${escapeHtml(name)}</strong>
                     <span>${last.from === "me" ? "Vos: " : ""}${escapeHtml(last.text)}</span>
                 </div>
+                ${c.pinned ? '<span class="material-symbols-outlined pin-mark" title="Destacada">star</span>' : ""}
             </button>`;
         }).join("");
     }
@@ -44,12 +46,14 @@ function openChat(name) {
     $("#chatRole").textContent = p.role;
 
     renderConversations();
+    scrollChatToBottom();
     $("#chatMessageInput").focus();
 }
 
 const REACTIONS = ["👍", "❤️", "😂", "😮", "🙏"];
 
 function renderChatMessages() {
+    updateChatHeader();
     const box = $("#chatMessages");
     const openId = box.querySelector(".message-row.show-actions")?.dataset.id;
     const nearBottom = box.scrollHeight - box.scrollTop - box.clientHeight < 80;
@@ -152,7 +156,6 @@ $("#chatForm").addEventListener("submit", e => {
     input.style.height = "";
 });
 
-
 // Enter envía, Shift+Enter hace salto de línea; el textarea crece solo
 $("#chatMessageInput").addEventListener("keydown", e => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -169,3 +172,42 @@ $("#chatMessageInput").addEventListener("input", e => {
 renderConversations();
 const requestedChat = new URLSearchParams(location.search).get("chat");
 if (requestedChat && conversations[requestedChat]) openChat(requestedChat);
+
+/* =========================
+    DESTACAR / ELIMINAR CHAT
+========================= */
+function updateChatHeader() {
+    const pinned = !!conversations[currentChat]?.pinned;
+    const button = $("#pinChatButton");
+    button.classList.toggle("on", pinned);
+    button.setAttribute("aria-pressed", pinned);
+    button.title = pinned ? "Quitar de destacadas" : "Destacar conversación";
+    button.querySelector(".chat-action__label").textContent = pinned ? "Destacada" : "Destacar";
+}
+
+// Las conversaciones destacadas se muestran primero en la lista
+function togglePinChat() {
+    const convo = conversations[currentChat];
+    if (!convo) return;
+    if (convo.pinned) delete convo.pinned;
+    else convo.pinned = true;
+    saveConversations();
+    renderConversations();
+    showToast(convo.pinned ? "Conversación destacada" : "Destacado quitado",
+        convo.pinned ? `${currentChat} aparece primero en tu lista.` : `${currentChat} volvió a su lugar.`);
+}
+
+function deleteChat() {
+    if (!conversations[currentChat]) return;
+    const name = currentChat;
+    if (!confirm(`¿Eliminar la conversación con ${name}? Se borrarán todos sus mensajes.`)) return;
+
+    delete conversations[name];
+    closeChat();
+    saveConversations();
+    renderConversations();
+    showToast("Conversación eliminada", `Se borró el chat con ${name}.`);
+}
+
+$("#pinChatButton").addEventListener("click", togglePinChat);
+$("#deleteChatButton").addEventListener("click", deleteChat);

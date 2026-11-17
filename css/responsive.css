@@ -197,3 +197,8 @@ body.dark-mode .empty-state, body.dark-mode .empty-chat { background: rgba(23,32
 body.dark-mode .message-actions, body.dark-mode .message-reaction { background: #202b23; border-color: #2b382f; }
 body.dark-mode .message-actions button:hover, body.dark-mode .message-actions button.on { background: #203a26; }
 body.dark-mode .message-actions [data-delete]:hover { background: #3a2222; }
+body.dark-mode .chat-action { background: #202b23; border-color: #334138; color: var(--text); }
+body.dark-mode .chat-action:hover { background: #203a26; }
+body.dark-mode .chat-action.on { background: #3a3218; border-color: #6b5a1c; color: #f0d27a; }
+body.dark-mode .chat-action--danger { color: #e08a8a; }
+body.dark-mode .chat-action--danger:hover { background: #3a2222; }
