@@ -1,6 +1,6 @@
 "use strict";
 
-// inicio.html está en la raíz; el resto de las páginas en /pages/
+// index.html está en la raíz; el resto de las páginas en /pages/
 const PAGES_DIR = location.pathname.includes("/pages/") ? "" : "pages/";
 
 const profiles = [
