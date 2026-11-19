@@ -113,61 +113,18 @@
 
                 <section class="settings-group">
                     <div class="settings-group__header">
-                        <span class="material-symbols-outlined">notifications</span>
+                        <span class="material-symbols-outlined">language</span>
                         <div>
-                            <h2>Notificaciones</h2>
-                            <p>Elegí qué avisos querés recibir.</p>
+                            <h2>Idioma</h2>
+                            <p>Elegí el idioma de la aplicación.</p>
                         </div>
                     </div>
                     <div class="settings-card">
                         <div>
-                            <h3>Nuevos matches</h3>
-                            <p>Avisarme cuando consiga una nueva conexión.</p>
+                            <h3>Idioma</h3>
+                            <p>Se aplica a toda la aplicación.</p>
                         </div>
-                        <label class="switch">
-                            <input type="checkbox" id="matchNotifications" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                    <div class="settings-card">
-                        <div>
-                            <h3>Mensajes</h3>
-                            <p>Avisarme cuando reciba un mensaje nuevo.</p>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox" id="messageNotifications" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                    <div class="settings-card">
-                        <div>
-                            <h3>Novedades por email</h3>
-                            <p>Recibir novedades y actualizaciones de Emprein.</p>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox" id="emailNotifications">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </section>
-
-                <section class="settings-group">
-                    <div class="settings-group__header">
-                        <span class="material-symbols-outlined">shield</span>
-                        <div>
-                            <h2>Privacidad</h2>
-                            <p>Controlá la visibilidad de tu perfil.</p>
-                        </div>
-                    </div>
-                    <div class="settings-card">
-                        <div>
-                            <h3>Perfil público</h3>
-                            <p>Permitir que otros usuarios encuentren tu perfil.</p>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox" id="publicProfileToggle" checked>
-                            <span class="slider"></span>
-                        </label>
+                        <select id="languageSelect" aria-label="Idioma"></select>
                     </div>
                 </section>
 
@@ -186,6 +143,7 @@
         </div>
     </div>
 
+    <script src="../script/i18n.js"></script>
     <script src="../script/common.js"></script>
     <script src="../script/configuracion.js"></script>
 

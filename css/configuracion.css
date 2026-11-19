@@ -17,3 +17,6 @@
 .slider::before { content: ''; position: absolute; width: 22px; height: 22px; top: 4px; left: 4px; border-radius: 50%; background: #fff; box-shadow: 0 2px 7px rgba(0,0,0,.15); transition: .22s; }
 .switch input:checked + .slider { background: var(--green); }
 .switch input:checked + .slider::before { transform: translateX(22px); }
+
+.settings-card select { min-width: 150px; min-height: 42px; padding: 0 12px; border: 1px solid #dfe7e1; border-radius: 12px; background: #fff; color: var(--text); font: inherit; font-size: 14px; cursor: pointer; outline: none; }
+.settings-card select:focus { border-color: var(--green); }

@@ -84,7 +84,7 @@ $("#editProfileButton").addEventListener("click", () => {
     $("#registerRole").value = user.role || "";
     $("#registerIdea").value = user.idea || "";
     $("#registerPassword").required = false;
-    $("#registerPassword").placeholder = "Dejalo vacío para mantener la actual";
+    $("#registerPassword").placeholder = t("Dejalo vacío para mantener la actual");
     loggedIn = false; // muestra el formulario; se restaura al guardar
     renderAccount();
     showAuthTab("register");

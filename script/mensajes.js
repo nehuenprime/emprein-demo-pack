@@ -24,7 +24,7 @@ function renderConversations() {
                 <div class="conversation-avatar">${escapeHtml(byName(name).initials)}</div>
                 <div class="conversation-info">
                     <strong>${escapeHtml(name)}</strong>
-                    <span>${last.from === "me" ? "Vos: " : ""}${escapeHtml(last.text)}</span>
+                    <span>${last.from === "me" ? t("Vos:") + " " : ""}${escapeHtml(last.text)}</span>
                 </div>
                 ${c.pinned ? '<span class="material-symbols-outlined pin-mark" title="Destacada">star</span>' : ""}
             </button>`;
@@ -101,7 +101,7 @@ function reactToMessage(id, emoji) {
 // Se puede borrar cualquier mensaje, tanto los tuyos como los de la otra persona
 function deleteMessage(id) {
     const convo = conversations[currentChat];
-    if (!convo || !confirm("¿Eliminar este mensaje? Esta acción no se puede deshacer.")) return;
+    if (!convo || !confirm(t("¿Eliminar este mensaje? Esta acción no se puede deshacer."))) return;
 
     convo.messages = convo.messages.filter(m => m.id !== id);
     if (!convo.messages.length) {
@@ -181,7 +181,7 @@ function updateChatHeader() {
     const button = $("#pinChatButton");
     button.classList.toggle("on", pinned);
     button.setAttribute("aria-pressed", pinned);
-    button.title = pinned ? "Quitar de destacadas" : "Destacar conversación";
+    button.title = t(pinned ? "Quitar de destacadas" : "Destacar conversación");
     button.querySelector(".chat-action__label").textContent = pinned ? "Destacada" : "Destacar";
 }
 
@@ -200,7 +200,7 @@ function togglePinChat() {
 function deleteChat() {
     if (!conversations[currentChat]) return;
     const name = currentChat;
-    if (!confirm(`¿Eliminar la conversación con ${name}? Se borrarán todos sus mensajes.`)) return;
+    if (!confirm(t(`¿Eliminar la conversación con ${name}? Se borrarán todos sus mensajes.`))) return;
 
     delete conversations[name];
     closeChat();

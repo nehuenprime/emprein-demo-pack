@@ -24,8 +24,8 @@ function renderProjects() {
                 <span class="badge">${escapeHtml(p.stage)}</span>
             </div>
             <div class="project-stats">
-                <span class="project-stat"><span class="material-symbols-outlined">visibility</span>${p.project.visits.toLocaleString("es-AR")}</span>
-                <span class="project-stat"><span class="material-symbols-outlined">handshake</span>${p.project.matches.toLocaleString("es-AR")}</span>
+                <span class="project-stat"><span class="material-symbols-outlined">visibility</span>${p.project.visits.toLocaleString(LOCALES[LANG])}</span>
+                <span class="project-stat"><span class="material-symbols-outlined">handshake</span>${p.project.matches.toLocaleString(LOCALES[LANG])}</span>
                 <span class="project-stat">${escapeHtml(p.name)}</span>
             </div>
         </article>`).join("") : `
