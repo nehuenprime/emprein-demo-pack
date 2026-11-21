@@ -208,3 +208,11 @@ renderSidebarAccount();
 ensureMessageIds();
 deliverReplies();
 if (isMobile()) $("#open-menu").checked = true; // checked = menú cerrado
+
+// En escritorio se recuerda si el menú está compacto, para mantenerlo al cambiar de página
+// (el estado inicial lo aplica un script en línea del HTML, para evitar parpadeos)
+$("#open-menu").addEventListener("change", e => {
+    if (!isMobile()) {
+        try { localStorage.setItem("empreinMenuCollapsed", e.target.checked ? "1" : "0"); } catch { /* ignorar */ }
+    }
+});

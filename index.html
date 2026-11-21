@@ -26,6 +26,7 @@
 
         <form class="sidebar__form">
             <input type="checkbox" id="open-menu">
+            <script>try { document.getElementById("open-menu").checked = matchMedia("(max-width: 700px)").matches || localStorage.getItem("empreinMenuCollapsed") === "1"; } catch (e) {}</script>
             <label class="material-symbols-outlined close-button" for="open-menu" title="Contraer menú">close</label>
             <label class="material-symbols-outlined open-button" for="open-menu" title="Abrir menú">double_arrow</label>
         </form>
